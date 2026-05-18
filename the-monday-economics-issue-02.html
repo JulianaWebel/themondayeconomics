@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Monday ECO-nomics · Issue 02 · 18 May 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unna:ital,wght@0,400;0,700;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+  background:#111110;
+  padding:2rem 1.25rem;
+  font-family:'Source Serif 4',Georgia,serif;
+}
+
+.page{
+  background:#f5f0e8;
+  color:#1a1a18;
+  max-width:920px;
+  margin:0 auto 1.5rem;
+  border:1px solid #2a2a28;
+  box-shadow:5px 5px 0 #222220,10px 10px 0 #1a1a18;
+  position:relative;
+  overflow:hidden;
+}
+
+.page::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:0;
+}
+.page>*{position:relative;z-index:1;}
+
+.masthead{
+  border-top:6px solid #1a1a18;
+  border-bottom:1px solid #1a1a18;
+  padding:1.1rem 2rem 0.85rem;
+  text-align:center;
+}
+
+.masthead-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:'DM Sans',sans-serif;
+  font-size:10px;
+  font-weight:300;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:#555550;
+  margin-bottom:0.45rem;
+}
+
+.masthead-name{
+  font-family:'Unna',serif;
+  font-size:clamp(36px,7.5vw,72px);
+  font-weight:700;
+  letter-spacing:0.01em;
+  line-height:1;
+  color:#1a1a18;
+  display:block;
+}
+
+.masthead-meta{margin-top:0.28rem;}
+
+.masthead-sub{
+  font-family:'DM Sans',sans-serif;
+  font-size:10px;
+  font-weight:300;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:#777770;
+  display:block;
+  line-height:1.5;
+}
+
+.masthead-editor{
+  font-family:'Source Serif 4',serif;
+  font-size:11.5px;
+  font-weight:300;
+  font-style:italic;
+  color:#777770;
+  display:block;
+  line-height:1.4;
+}
+
+.masthead-rule{border:none;border-top:1px solid #1a1a18;margin:0.65rem 0 0;}
+
+.edition-bar{
+  border-bottom:3px solid #1a1a18;
+  padding:0.38rem 2rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:'DM Sans',sans-serif;
+  font-size:10.5px;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:#1a1a18;
+}
+
+.content{padding:1.35rem 2rem 1.6rem;}
+
+.kicker{
+  font-family:'DM Sans',sans-serif;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:#444440;
+  border-bottom:1.5px solid #444440;
+  display:inline-block;
+  padding-bottom:2px;
+  margin-bottom:0.42rem;
+}
+
+.section-header{
+  border-top:3px solid #1a1a18;
+  padding-top:0.45rem;
+  margin-bottom:1.1rem;
+}
+.section-title{
+  font-family:'DM Sans',sans-serif;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:#1a1a18;
+}
+
+.summary-bar{
+  border-top:1px solid #1a1a18;
+  border-bottom:1px solid #bbb;
+  padding:0.9rem 0;
+  margin:0 0 1.3rem;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+  gap:1rem;
+}
+.summary-item{padding-right:1rem;border-right:1px solid #bbb;}
+.summary-item:last-child{border-right:none;padding-right:0;}
+.summary-number{font-family:'Unna',serif;font-size:26px;font-weight:700;color:#1a1a18;line-height:1;margin-bottom:0.2rem;}
+.summary-label{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.05em;text-transform:uppercase;color:#666660;line-height:1.4;}
+
+.lead-section{
+  display:grid;
+  grid-template-columns:1.6fr 1fr;
+  gap:1.75rem;
+  border-bottom:1px solid #bbb;
+  padding-bottom:1.3rem;
+  margin-bottom:1.3rem;
+}
+
+.lead-headline{
+  font-family:'Unna',serif;
+  font-size:clamp(18px,3vw,28px);
+  font-weight:700;
+  line-height:1.18;
+  color:#1a1a18;
+  margin-bottom:0.6rem;
+}
+
+.lead-deck{
+  font-family:'Source Serif 4',serif;
+  font-size:13.5px;
+  font-weight:300;
+  font-style:italic;
+  color:#333330;
+  line-height:1.6;
+  margin-bottom:0.65rem;
+  border-left:3px solid #1a1a18;
+  padding-left:0.7rem;
+}
+
+.body-text{
+  font-family:'Source Serif 4',serif;
+  font-size:13.5px;
+  font-weight:300;
+  line-height:1.78;
+  color:#1a1a18;
+}
+.body-text p{margin-bottom:0.65rem;}
+.body-text p:last-child{margin-bottom:0;}
+
+.why-it-matters{
+  font-family:'DM Sans',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:#1a1a18;
+  border-top:1px solid #1a1a18;
+  padding-top:0.42rem;
+  margin-top:0.7rem;
+}
+.why-it-matters span{font-family:'Source Serif 4',serif;font-size:13px;font-weight:300;letter-spacing:0;text-transform:none;color:#333330;}
+
+.source-tag{font-family:'DM Sans',sans-serif;font-size:10px;color:#888880;margin-top:0.42rem;line-height:1.6;}
+.source-tag a{color:#555550;text-decoration:underline;text-underline-offset:2px;}
+.source-tag a:hover{color:#1a1a18;}
+
+.story-hed{
+  font-family:'Unna',serif;
+  font-size:18px;
+  font-weight:700;
+  line-height:1.22;
+  color:#1a1a18;
+  margin-bottom:0.4rem;
+}
+
+.exec-summary{border:1px solid #1a1a18;padding:0.9rem;margin-bottom:0.9rem;background:#1a1a18;}
+.exec-title{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,0.2);padding-bottom:0.4rem;margin-bottom:0.7rem;color:#f5f0e8;}
+.exec-item{font-family:'Source Serif 4',serif;font-size:12.5px;font-weight:300;line-height:1.6;color:#e8e4dc;padding:0.38rem 0 0.38rem 0.7rem;border-bottom:1px solid rgba(255,255,255,0.1);position:relative;}
+.exec-item:last-child{border-bottom:none;}
+.exec-item::before{content:'';position:absolute;left:0;top:0.65rem;width:3px;height:3px;background:#e8e4dc;border-radius:50%;}
+
+.events-box{background:#2a2a26;padding:0.9rem;}
+.events-title{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,0.18);padding-bottom:0.4rem;margin-bottom:0.7rem;color:#f5f0e8;}
+.event-item{padding:0.38rem 0;border-bottom:1px solid rgba(255,255,255,0.08);font-family:'Source Serif 4',serif;font-size:12px;font-weight:300;line-height:1.55;color:#f5f0e8;}
+.event-item:last-child{border-bottom:none;}
+.event-date{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.06em;color:rgba(255,255,255,0.5);margin-bottom:2px;}
+.event-item a{color:rgba(255,255,255,0.55);text-decoration:underline;text-underline-offset:2px;font-size:10px;}
+.event-item a:hover{color:#fff;}
+
+.footer-bar{margin-top:1.3rem;padding-top:0.9rem;border-top:1px solid #bbb;display:flex;justify-content:space-between;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.08em;text-transform:uppercase;color:#888880;}
+
+.excellent-box{background:#1a1a18;padding:1.1rem 1.3rem;margin-top:1.3rem;}
+.excellent-title{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#a0c890;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:0.4rem;margin-bottom:0.9rem;}
+.excellent-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.excellent-item{padding-right:1.5rem;border-right:1px solid rgba(255,255,255,0.1);}
+.excellent-item:last-child{padding-right:0;border-right:none;}
+.excellent-hed{font-family:'Unna',serif;font-size:16px;font-weight:700;color:#f0ece0;margin-bottom:0.35rem;line-height:1.25;}
+.excellent-body{font-family:'Source Serif 4',serif;font-size:13px;font-weight:300;line-height:1.72;color:#c8c4bc;}
+.excellent-source{font-family:'DM Sans',sans-serif;font-size:10px;margin-top:0.4rem;}
+.excellent-source a{color:rgba(255,255,255,0.45);text-decoration:underline;text-underline-offset:2px;}
+.excellent-source a:hover{color:rgba(255,255,255,0.75);}
+
+.tool-box{background:#1a1a18;border:1px solid #111;padding:1.1rem;margin-top:1.3rem;}
+.tool-title{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#a0a89a;margin-bottom:0.45rem;}
+.tool-hed{font-family:'Unna',serif;font-size:19px;font-weight:700;color:#f0ece0;margin-bottom:0.4rem;}
+.tool-body{font-family:'Source Serif 4',serif;font-size:13.5px;font-weight:300;line-height:1.75;color:#d8d4c8;}
+.tool-body a{color:#a0c890;text-decoration:underline;text-underline-offset:2px;}
+.tool-body p{margin-bottom:0.6rem;}
+.tool-body p:last-child{margin-bottom:0;}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  body{padding:1rem 0.4rem;}
+  .page{box-shadow:3px 3px 0 #222220;}
+  .masthead{padding:0.9rem 1rem 0.75rem;}
+  .content{padding:1rem 1rem 1.2rem;}
+  .masthead-top,.edition-bar,.footer-bar{flex-direction:column;gap:4px;text-align:center;}
+  .edition-bar{padding:0.4rem 1rem;}
+  .lead-section,.two-col,.three-col,.excellent-grid{grid-template-columns:1fr!important;}
+  .excellent-item{padding-right:0;border-right:none;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.9rem;margin-bottom:0.9rem;}
+  .excellent-item:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0;}
+  .summary-bar{grid-template-columns:1fr 1fr;}
+  .summary-item{border-right:none;border-bottom:1px solid #bbb;padding:0 0 0.6rem;}
+  .summary-item:nth-child(odd){border-right:1px solid #bbb;padding-right:0.75rem;}
+  .summary-item:nth-child(even){padding-left:0.75rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="masthead">
+    <div class="masthead-top">
+      <span>Issue 02</span>
+      <span>Monday, 18 May 2026</span>
+    </div>
+    <span class="masthead-name">The Monday ECO-nomics</span>
+    <div class="masthead-meta">
+      <span class="masthead-sub">Sustainability Intelligence</span>
+      <span class="masthead-editor">Editor: Juliana Webel</span>
+    </div>
+    <hr class="masthead-rule">
+  </div>
+
+  <div class="edition-bar">
+    <span>English Edition</span>
+    <span>ESG · Climate · Nature · Regenerative Economy · Social Impact</span>
+  </div>
+
+  <div class="content">
+    <div class="summary-bar">
+      <div class="summary-item">
+        <div class="summary-number">78%</div>
+        <div class="summary-label">Corporate leaders rating climate operational risk as likely within five years</div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-number">47%</div>
+        <div class="summary-label">Sustainability leaders seeing room for improvement in execution, up from 36% in 2025</div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-number">12M ha</div>
+        <div class="summary-label">Degraded land Indonesia committed to restoring, with carbon credit sales planned</div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-number">1.15M</div>
+        <div class="summary-label">Views earned by an Indian village leader's welfare access Instagram reels</div>
+      </div>
+    </div>
+
+    <div class="lead-section">
+      <div>
+        <div class="kicker">Lead story · Regulatory & Policy</div>
+        <div class="lead-headline">SEC moves to formally rescind its 2024 climate disclosure rules</div>
+        <div class="lead-deck">The proposal, submitted on 4 May, cites concerns about statutory authority and cost-benefit balance. The rules never took effect due to legal challenges, but their formal removal signals a decisive shift in the US disclosure landscape.</div>
+        <div class="body-text">
+          <p>The US Securities and Exchange Commission submitted a proposal on 4 May 2026 to formally rescind its 2024 climate disclosure rules, which would have required listed companies to disclose climate-related risks and greenhouse gas emissions. The rules were challenged in court before taking effect and were subsequently stayed.</p>
+          <p>The SEC's decision to rescind rather than merely defer reflects a substantive change in regulatory philosophy rather than procedural delay. For companies that had begun preparing voluntary disclosures in anticipation of the rules, the practical question now is whether investor demand sustains disclosure momentum without a legal obligation.</p>
+          <p>A Morgan Stanley survey of 300 global sustainability leaders, published the same week, shows the corporate sustainability execution picture is also weakening: 47% now see room for improvement in execution, up from 36% in 2025. Just 22% view sustainability primarily as value creation, down from 53% last year.</p>
+        </div>
+        <div class="why-it-matters">Why it matters: <span>The US climate disclosure project is effectively over for this regulatory cycle. European and voluntary frameworks carry more weight as a result.</span></div>
+        <div class="source-tag">Sources: <a href="https://www.esgtoday.com/sec-moves-to-repeal-climate-reporting-rules/" target="_blank">ESG Today</a> · <a href="https://www.morganstanley.com/insights/articles/sustainable-signals-corporates-2026" target="_blank">Morgan Stanley</a></div>
+      </div>
+
+      <div>
+        <div class="exec-summary">
+          <div class="exec-title">This week at a glance</div>
+          <div class="exec-item">SEC proposes formal rescission of 2024 climate disclosure rules. Rules never took effect; move signals definitive end of the US federal climate disclosure project for this cycle.</div>
+          <div class="exec-item">Morgan Stanley survey: 47% of sustainability leaders see execution weakening. Only 22% still view sustainability as value creation, down from 53% in 2025.</div>
+          <div class="exec-item">Indonesia commits to restoring 12 million hectares of degraded land, with international carbon credit sales planned under updated trading rules.</div>
+          <div class="exec-item">Climate Action 100+ releases streamlined Net Zero Company Benchmark for 2026, shifting focus from process to outcomes measurement.</div>
+        </div>
+        <div class="events-box">
+          <div class="events-title">Upcoming</div>
+          <div class="event-item"><div class="event-date">20 to 28 June 2026</div>London Climate Action Week, Europe's largest independent climate event, now in its 8th edition, attracting over 45,000 people annually across hundreds of partner-led sessions on finance, policy, and innovation. <a href="https://londonclimateactionweek.org/" target="_blank">Details</a></div>
+          <div class="event-item"><div class="event-date">7 to 15 July 2026</div>UN High-Level Political Forum on Sustainable Development, with 36 countries presenting Voluntary National Reviews including Brazil, Italy, Norway, and Switzerland. Theme: "Transformative, equitable, innovative and coordinated actions for the 2030 Agenda." In-depth reviews of SDGs 6, 7, 9, 11, and 17. <a href="https://hlpf.un.org/2026" target="_blank">Details</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>The Monday ECO-nomics · Issue 02 · 18 May 2026</span>
+      <span>English Edition</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="edition-bar">
+    <span>The Monday ECO-nomics · Issue 02</span>
+    <span>Page 2 · Policy · Market · Science · Nature</span>
+  </div>
+
+  <div class="content">
+
+    <!-- REGULATORY -->
+    <div style="border-bottom:1px solid #bbb;padding-bottom:1.3rem;margin-bottom:1.3rem;">
+      <div class="section-header"><div class="section-title">Regulatory & Policy Watch</div></div>
+      <div class="kicker">Investor Coalitions · Net Zero Benchmarking</div>
+      <div class="story-hed">Climate Action 100+ updates benchmark framework for 2026</div>
+      <div class="body-text">
+        <p>The investor coalition released a streamlined Net Zero Company Benchmark for 2026, adding the World Benchmarking Alliance as a new partner to assess climate governance and absolute emissions metrics. The framework consolidates climate policy engagement metrics under InfluenceMap to reduce duplication. Full company assessments are expected in October 2026.</p>
+      </div>
+      <div class="why-it-matters">Why it matters: <span>The investor expectations framework is adapting to regulatory disclosure mandates, shifting focus from process to outcomes measurement.</span></div>
+      <div class="source-tag">Source: <a href="https://www.climateaction100.org/news/climate-action-100-unveils-streamlined-net-zero-company-benchmark-framework-for-2026/" target="_blank">Climate Action 100+</a></div>
+    </div>
+
+    <!-- MARKET -->
+    <div style="border-bottom:1px solid #bbb;padding-bottom:1.3rem;margin-bottom:1.3rem;">
+      <div class="section-header"><div class="section-title">Market & Corporate Moves</div></div>
+      <div class="kicker">Climate Risk · Corporate Operations</div>
+      <div class="story-hed">Physical climate risk expectations spike among corporate leaders</div>
+      <div class="body-text">
+        <p>A Morgan Stanley survey finds 78% of corporate leaders rate negative operational impacts from extreme weather, wildfires, or flooding as very or somewhat likely within five years, up from 65% in 2025. Nearly two-thirds (63%) say increased operational costs from physical climate impacts are very likely.</p>
+      </div>
+      <div class="why-it-matters">Why it matters: <span>Climate risk is transitioning from a disclosure exercise to an operational planning imperative for most large corporates.</span></div>
+      <div class="source-tag">Source: <a href="https://www.morganstanley.com/insights/articles/sustainable-signals-corporates-2026" target="_blank">Morgan Stanley</a></div>
+    </div>
+
+    <!-- NATURE: full width, Science section removed (Nature Climate Change paywalled) -->
+    <div>
+      <div class="section-header"><div class="section-title">Nature, Biodiversity & Regenerative Economy</div></div>
+      <div class="kicker">Carbon Markets · Land Restoration</div>
+      <div class="story-hed">Indonesia carbon credit strategy crystallises around 12 million hectare restoration commitment</div>
+      <div class="body-text">
+        <p>Indonesia's Forestry Minister confirmed on 12 May at the UN Forum on Forests that the country will rehabilitate 12 million hectares of degraded land, potentially linking reforestation to international carbon credit sales under recently updated trading rules. The forestry ministry confirmed updated carbon trading regulations will meet high integrity standards and involve local community partnerships.</p>
+        <p>The target covers 29.65 million acres but faces scrutiny after forest loss reportedly surged 66% in 2025.</p>
+      </div>
+      <div class="why-it-matters">Why it matters: <span>One of the world's largest nature-based carbon programmes is taking shape, but credibility depends on reversing recent deforestation trends.</span></div>
+      <div class="source-tag">Source: <a href="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/05/13/indonesia-wants-to-reforest-12-million-hectares-of-degraded-land-may-sell-carbon-offsets-minister-says" target="_blank">Reuters via The Star</a></div>
+    </div>
+
+    <!-- EXCELLENT NEWS -->
+    <div class="excellent-box" style="margin-top:1.3rem;">
+      <div class="excellent-title">Excellent News</div>
+      <div class="excellent-grid" style="grid-template-columns:1fr;">
+        <div class="excellent-item" style="padding-right:0;border-right:none;">
+          <div class="excellent-hed">A village leader in Gujarat turned Instagram into a welfare access tool for over 1,000 people</div>
+          <div class="excellent-body">Gamit Ripin, the 33-year-old elected head of Chikalda village in Gujarat, India, has helped more than 1,000 people access government welfare schemes through one-minute Instagram reels explaining eligibility and application procedures in plain language. His 50-plus videos have garnered over 1.15 million views, with 90% driven by the platform's algorithm. Since July 2025, the approach has helped 17 families access housing subsidies, 60 widows receive pensions, and numerous students obtain scholarships.</div>
+          <div class="excellent-source"><a href="https://reasonstobecheerful.world/indian-village-leader-viral-explainer-videos/" target="_blank">Reasons to be Cheerful</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>The Monday ECO-nomics · Issue 02 · 18 May 2026</span>
+      <span>English Edition · Page 2</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <div class="edition-bar">
+    <span>The Monday ECO-nomics · Issue 02</span>
+    <span>Page 3 · Tool of the Week</span>
+  </div>
+
+  <div class="content">
+
+    <div class="tool-box">
+      <div class="tool-title">Tool of the week</div>
+      <div class="tool-hed">Climate TRACE Release 5.6.0</div>
+      <div class="tool-body">
+        <p>Released in April 2026, this latest version provides monthly greenhouse gas emissions data through February 2026, tracking facility-level emissions using satellite observations, AI, and machine learning across more than 90 trillion bytes of data from 300-plus satellites and 11,000-plus sensors. The platform now covers all major emitting sectors with asset-level granularity, enabling practitioners to identify specific emission sources at individual facilities rather than relying on national aggregates or self-reported data.</p>
+        <p>The open-source database is available under a Creative Commons 4.0 licence. Access at <a href="https://climatetrace.org/data" target="_blank">climatetrace.org/data</a>.</p>
+        <p>Why it matters: Monthly emissions updates with a two-month lag provide practitioners with near-real-time verification capability for corporate disclosure claims and supply chain emissions tracking at unprecedented geographic and temporal resolution.</p>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>The Monday ECO-nomics · Issue 02 · 18 May 2026</span>
+      <span>English Edition · Page 3</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
