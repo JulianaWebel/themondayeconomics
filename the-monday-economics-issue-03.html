@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Monday ECO-nomics · Issue 03 · 25 May 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unna:ital,wght@0,400;0,700;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+  background:#111110;
+  padding:2rem 1.25rem;
+  font-family:'Source Serif 4',Georgia,serif;
+}
+
+.page{
+  background:#f5f0e8;
+  color:#1a1a18;
+  max-width:920px;
+  margin:0 auto 1.5rem;
+  border:1px solid #2a2a28;
+  box-shadow:5px 5px 0 #222220,10px 10px 0 #1a1a18;
+  position:relative;
+  overflow:hidden;
+}
+
+.page::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:0;
+}
+.page>*{position:relative;z-index:1;}
+
+.masthead{
+  border-top:6px solid #1a1a18;
+  border-bottom:1px solid #1a1a18;
+  padding:1.1rem 2rem 0.85rem;
+  text-align:center;
+}
+
+.masthead-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:'DM Sans',sans-serif;
+  font-size:10px;
+  font-weight:300;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:#555550;
+  margin-bottom:0.45rem;
+}
+
+.masthead-name{
+  font-family:'Unna',serif;
+  font-size:clamp(36px,7.5vw,72px);
+  font-weight:700;
+  letter-spacing:0.01em;
+  line-height:1;
+  color:#1a1a18;
+  display:block;
+}
+
+.masthead-meta{margin-top:0.28rem;}
+
+.masthead-sub{
+  font-family:'DM Sans',sans-serif;
+  font-size:10px;
+  font-weight:300;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:#777770;
+  display:block;
+  line-height:1.5;
+}
+
+.masthead-editor{
+  font-family:'Source Serif 4',serif;
+  font-size:11.5px;
+  font-weight:300;
+  font-style:italic;
+  color:#777770;
+  display:block;
+  line-height:1.4;
+}
+
+.masthead-rule{border:none;border-top:1px solid #1a1a18;margin:0.65rem 0 0;}
+
+.edition-bar{
+  border-bottom:3px solid #1a1a18;
+  padding:0.38rem 2rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:'DM Sans',sans-serif;
+  font-size:10.5px;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:#1a1a18;
+}
+
+.content{padding:1.35rem 2rem 1.6rem;}
+
+.kicker{
+  font-family:'DM Sans',sans-serif;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:#444440;
+  border-bottom:1.5px solid #444440;
+  display:inline-block;
+  padding-bottom:2px;
+  margin-bottom:0.42rem;
+}
+
+.section-header{
+  border-top:3px solid #1a1a18;
+  padding-top:0.45rem;
+  margin-bottom:1.1rem;
+}
+.section-title{
+  font-family:'DM Sans',sans-serif;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:#1a1a18;
+}
+
+.summary-bar{
+  border-top:1px solid #1a1a18;
+  border-bottom:1px solid #bbb;
+  padding:0.9rem 0;
+  margin:0 0 1.3rem;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+  gap:1rem;
+}
+.summary-item{padding-right:1rem;border-right:1px solid #bbb;}
+.summary-item:last-child{border-right:none;padding-right:0;}
+.summary-number{font-family:'Unna',serif;font-size:26px;font-weight:700;color:#1a1a18;line-height:1;margin-bottom:0.2rem;}
+.summary-label{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.05em;text-transform:uppercase;color:#666660;line-height:1.4;}
+
+.lead-section{
+  display:grid;
+  grid-template-columns:1.6fr 1fr;
+  gap:1.75rem;
+  border-bottom:1px solid #bbb;
+  padding-bottom:1.3rem;
+  margin-bottom:1.3rem;
+}
+
+.lead-headline{
+  font-family:'Unna',serif;
+  font-size:clamp(18px,3vw,28px);
+  font-weight:700;
+  line-height:1.18;
+  color:#1a1a18;
+  margin-bottom:0.6rem;
+}
+
+.lead-deck{
+  font-family:'Source Serif 4',serif;
+  font-size:13.5px;
+  font-weight:300;
+  font-style:italic;
+  color:#333330;
+  line-height:1.6;
+  margin-bottom:0.65rem;
+  border-left:3px solid #1a1a18;
+  padding-left:0.7rem;
+}
+
+.body-text{
+  font-family:'Source Serif 4',serif;
+  font-size:13.5px;
+  font-weight:300;
+  line-height:1.78;
+  color:#1a1a18;
+}
+.body-text p{margin-bottom:0.65rem;}
+.body-text p:last-child{margin-bottom:0;}
+
+.why-it-matters{
+  font-family:'DM Sans',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:#1a1a18;
+  border-top:1px solid #1a1a18;
+  padding-top:0.42rem;
+  margin-top:0.7rem;
+}
+.why-it-matters span{font-family:'Source Serif 4',serif;font-size:13px;font-weight:300;letter-spacing:0;text-transform:none;color:#333330;}
+
+.source-tag{font-family:'DM Sans',sans-serif;font-size:10px;color:#888880;margin-top:0.42rem;line-height:1.6;}
+.source-tag a{color:#555550;text-decoration:underline;text-underline-offset:2px;}
+.source-tag a:hover{color:#1a1a18;}
+
+.story-hed{
+  font-family:'Unna',serif;
+  font-size:18px;
+  font-weight:700;
+  line-height:1.22;
+  color:#1a1a18;
+  margin-bottom:0.4rem;
+}
+
+.exec-summary{border:1px solid #1a1a18;padding:0.9rem;margin-bottom:0.9rem;background:#1a1a18;}
+.exec-title{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,0.2);padding-bottom:0.4rem;margin-bottom:0.7rem;color:#f5f0e8;}
+.exec-item{font-family:'Source Serif 4',serif;font-size:12.5px;font-weight:300;line-height:1.6;color:#e8e4dc;padding:0.38rem 0 0.38rem 0.7rem;border-bottom:1px solid rgba(255,255,255,0.1);position:relative;}
+.exec-item:last-child{border-bottom:none;}
+.exec-item::before{content:'';position:absolute;left:0;top:0.65rem;width:3px;height:3px;background:#e8e4dc;border-radius:50%;}
+
+.events-box{background:#2a2a26;padding:0.9rem;}
+.events-title{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,0.18);padding-bottom:0.4rem;margin-bottom:0.7rem;color:#f5f0e8;}
+.event-item{padding:0.38rem 0;border-bottom:1px solid rgba(255,255,255,0.08);font-family:'Source Serif 4',serif;font-size:12px;font-weight:300;line-height:1.55;color:#f5f0e8;}
+.event-item:last-child{border-bottom:none;}
+.event-date{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.06em;color:rgba(255,255,255,0.5);margin-bottom:2px;}
+.event-item a{color:rgba(255,255,255,0.55);text-decoration:underline;text-underline-offset:2px;font-size:10px;}
+.event-item a:hover{color:#fff;}
+
+.footer-bar{margin-top:1.3rem;padding-top:0.9rem;border-top:1px solid #bbb;display:flex;justify-content:space-between;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.08em;text-transform:uppercase;color:#888880;}
+
+.excellent-box{background:#1a1a18;padding:1.1rem 1.3rem;margin-top:1.3rem;}
+.excellent-title{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#a0c890;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:0.4rem;margin-bottom:0.9rem;}
+.excellent-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.excellent-item{padding-right:1.5rem;border-right:1px solid rgba(255,255,255,0.1);}
+.excellent-item:last-child{padding-right:0;border-right:none;}
+.excellent-hed{font-family:'Unna',serif;font-size:16px;font-weight:700;color:#f0ece0;margin-bottom:0.35rem;line-height:1.25;}
+.excellent-body{font-family:'Source Serif 4',serif;font-size:13px;font-weight:300;line-height:1.72;color:#c8c4bc;}
+.excellent-source{font-family:'DM Sans',sans-serif;font-size:10px;margin-top:0.4rem;}
+.excellent-source a{color:rgba(255,255,255,0.45);text-decoration:underline;text-underline-offset:2px;}
+.excellent-source a:hover{color:rgba(255,255,255,0.75);}
+
+.tool-box{background:#1a1a18;border:1px solid #111;padding:1.1rem;margin-top:1.3rem;}
+.tool-title{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#a0a89a;margin-bottom:0.45rem;}
+.tool-hed{font-family:'Unna',serif;font-size:19px;font-weight:700;color:#f0ece0;margin-bottom:0.4rem;}
+.tool-body{font-family:'Source Serif 4',serif;font-size:13.5px;font-weight:300;line-height:1.75;color:#d8d4c8;}
+.tool-body a{color:#a0c890;text-decoration:underline;text-underline-offset:2px;}
+.tool-body p{margin-bottom:0.6rem;}
+.tool-body p:last-child{margin-bottom:0;}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  body{padding:1rem 0.4rem;}
+  .page{box-shadow:3px 3px 0 #222220;}
+  .masthead{padding:0.9rem 1rem 0.75rem;}
+  .content{padding:1rem 1rem 1.2rem;}
+  .masthead-top,.edition-bar,.footer-bar{flex-direction:column;gap:4px;text-align:center;}
+  .edition-bar{padding:0.4rem 1rem;}
+  .lead-section,.two-col,.three-col,.excellent-grid{grid-template-columns:1fr!important;}
+  .excellent-item{padding-right:0;border-right:none;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.9rem;margin-bottom:0.9rem;}
+  .excellent-item:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0;}
+  .summary-bar{grid-template-columns:1fr 1fr;}
+  .summary-item{border-right:none;border-bottom:1px solid #bbb;padding:0 0 0.6rem;}
+  .summary-item:nth-child(odd){border-right:1px solid #bbb;padding-right:0.75rem;}
+  .summary-item:nth-child(even){padding-left:0.75rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="masthead">
+    <div class="masthead-top">
+      <span>Issue 03</span>
+      <span>Monday, 25 May 2026</span>
+    </div>
+    <span class="masthead-name">The Monday ECO-nomics</span>
+    <div class="masthead-meta">
+      <span class="masthead-sub">Sustainability Intelligence</span>
+      <span class="masthead-editor">Editor: Juliana Webel</span>
+    </div>
+    <hr class="masthead-rule">
+  </div>
+
+  <div class="edition-bar">
+    <span>English Edition</span>
+    <span>ESG · Climate · Nature · Regenerative Economy · Social Impact</span>
+  </div>
+
+  <div class="content">
+    <div class="summary-bar">
+      <div class="summary-item">
+        <div class="summary-number">141</div>
+        <div class="summary-label">Countries voting in favour of the UN General Assembly climate obligations resolution</div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-number">$800bn</div>
+        <div class="summary-label">Savings from redirecting coal steel investment before 2030 versus later decarbonisation</div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-number">36%</div>
+        <div class="summary-label">Drop in tropical primary forest loss in 2025 versus the record high of 2024</div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-number">10,000</div>
+        <div class="summary-label">Companies with SBTi-validated targets globally as of January 2026</div>
+      </div>
+    </div>
+
+    <div class="lead-section">
+      <div>
+        <div class="kicker">Lead story · Regulatory & Policy</div>
+        <div class="lead-headline">141 countries back legal obligation to address climate change at the UN</div>
+        <div class="lead-deck">The UN General Assembly adopted a landmark resolution on 20 May affirming that states have a legal duty under international law to protect the climate system, backing the ICJ's 2025 advisory opinion. Eight countries voted against: the US, Russia, Saudi Arabia, Iran, Belarus, Israel, Yemen, and Liberia.</div>
+        <div class="body-text">
+          <p>Led by Vanuatu and fellow Pacific island nations, the resolution passed with 141 votes in favour and 28 abstentions, including India and COP31 host Turkey. The resolution calls on all member states to take all possible steps to avoid causing significant climate damage, comply with their Paris Agreement pledges, and reduce fossil fuel consumption. Secretary-General Antonio Guterres said those contributing least to climate change are "paying the largest price" for its effects.</p>
+          <p>The resolution does not create new treaty obligations, but it gives legal weight to the ICJ's non-binding 2025 advisory opinion and sets the stage for climate accountability claims, including potential loss and damage proceedings. The "International Register of Damage" that Vanuatu had originally sought was removed during negotiations.</p>
+        </div>
+        <div class="why-it-matters">Why it matters: <span>Climate liability is now grounded in a formal UN General Assembly resolution backed by 141 states. Investors and corporate legal teams tracking climate litigation risk should treat this as a material development.</span></div>
+        <div class="source-tag">Sources: <a href="https://news.un.org/en/story/2026/05/1167561" target="_blank">UN News</a> · <a href="https://www.carbonbrief.org/debriefed-22-may-2026-un-adopts-landmark-resolution-trump-takes-on-rcp8-5-climate-migration/" target="_blank">Carbon Brief</a></div>
+      </div>
+
+      <div>
+        <div class="exec-summary">
+          <div class="exec-title">This week at a glance</div>
+          <div class="exec-item">141 countries back UN General Assembly resolution affirming legal obligations to address climate change, underpinning the ICJ's 2025 advisory opinion.</div>
+          <div class="exec-item">Nature Climate Change study: acting on coal steel before 2030 is $800 billion cheaper than equivalent cuts later. The window is closing fast.</div>
+          <div class="exec-item">Tropical primary forest loss fell 36% in 2025, driven by Brazil, but the world remains 70% off-track for its 2030 deforestation goal.</div>
+          <div class="exec-item">SBTi launches 2026-2030 strategy, shifting from ambition-setter to transformation partner with sector-specific guidance and advisory services.</div>
+        </div>
+        <div class="events-box">
+          <div class="events-title">Upcoming</div>
+          <div class="event-item">
+            <div class="event-date">30 May to 6 June 2026</div>
+            8th GEF Assembly and 71st GEF Council, Samarkand, Uzbekistan. The Global Biodiversity Framework Fund Council meets on the sidelines, with over $200 million in proposed allocations under review and GEF-9 (2026-2030) funding plans in focus. <a href="https://www.thegef.org/events/eighth-gef-assembly" target="_blank">Details</a>
+          </div>
+          <div class="event-item">
+            <div class="event-date">End of June 2026</div>
+            SBTi due to publish an updated draft of its Corporate Net-Zero Standard, ahead of finalisation later in 2026. <a href="https://sciencebasedtargets.org/net-zero" target="_blank">Details</a>
+          </div>
+          <div class="event-item">
+            <div class="event-date">20 to 28 June 2026</div>
+            London Climate Action Week, Europe's largest independent climate event, now in its 8th edition. <a href="https://londonclimateactionweek.org/" target="_blank">Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>The Monday ECO-nomics · Issue 03 · 25 May 2026</span>
+      <span>English Edition</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="edition-bar">
+    <span>The Monday ECO-nomics · Issue 03</span>
+    <span>Page 2 · Policy · Market · Science · Nature</span>
+  </div>
+
+  <div class="content">
+
+    <!-- REGULATORY -->
+    <div style="border-bottom:1px solid #bbb;padding-bottom:1.3rem;margin-bottom:1.3rem;">
+      <div class="section-header"><div class="section-title">Regulatory & Policy Watch</div></div>
+
+      <div style="margin-bottom:1.3rem;">
+        <div class="kicker">Sustainable Finance · SFDR Review</div>
+        <div class="story-hed">European Parliament issues draft report on SFDR 2.0</div>
+        <div class="body-text">
+          <p>On 4 May 2026, the European Parliament published a draft report on SFDR 2.0, proposing further amendments to the Commission's November 2025 proposal. The Commission's proposal would remove entity-level disclosure obligations, take financial advisers out of scope, significantly reduce product-level disclosures, and introduce a new three-category product classification system replacing the current Article 6, 8, and 9 framework. The Parliament's draft retains these core elements while proposing additional improvements.</p>
+          <p>Eurosif welcomed the draft as a step in the right direction but flagged important remaining gaps around greenwashing prevention and workability across asset classes. Final agreement on the text may take considerable time given the parallel Omnibus simplification work running alongside the SFDR review in the legislative calendar.</p>
+        </div>
+        <div class="why-it-matters">Why it matters: <span>Financial market participants should not expect final SFDR 2.0 rules before late 2026 at the earliest, with application most likely in 2028 to 2029. Early preparation on the new categorisation system is worthwhile.</span></div>
+        <div class="source-tag">Sources: <a href="https://www.hoganlovells.com/en/publications/eu-sfdr-20-parliament-draft-published" target="_blank">Hogan Lovells</a> · <a href="https://www.eurosif.org/press-room/sfdr-review-draft-moves-in-the-right-direction-but-important-gaps-remain/" target="_blank">Eurosif</a></div>
+      </div>
+
+      <div>
+        <div class="kicker">Deforestation · EUDR Simplification</div>
+        <div class="story-hed">EUDR scope finalised: leather out, soluble coffee in, December 2026 deadline confirmed</div>
+        <div class="body-text">
+          <p>On 4 May 2026, the EU Commission published a simplification package for the EUDR including a draft delegated act that proposes removing leather and retreaded tyres from scope, adding soluble coffee and certain palm oil derivatives, and introducing exemptions for packaging, product samples, and second-hand goods. The Commission confirmed it will not reopen the core text of the regulation and that compliance costs are expected to fall by around 75% versus the original set-up. The draft act is open for public feedback until 1 June 2026.</p>
+          <p>The EUDR will apply from 30 December 2026 to large and medium-sized enterprises, and from 30 June 2027 for micro and small operators.</p>
+        </div>
+        <div class="why-it-matters">Why it matters: <span>No further material changes are coming. Companies should now be in active implementation mode for the December 2026 deadline.</span></div>
+        <div class="source-tag">Sources: <a href="https://www.bclplaw.com/en-US/events-insights-news/update-on-the-eu-deforestation-regulation-eudr.html" target="_blank">BCLP</a> · <a href="https://sustainablefutures.linklaters.com/post/102mrv4/eu-eudr-simplification-report-lands-alongside-updated-guidance-and-faqs" target="_blank">Linklaters</a></div>
+      </div>
+    </div>
+
+    <!-- MARKET -->
+    <div style="border-bottom:1px solid #bbb;padding-bottom:1.3rem;margin-bottom:1.3rem;">
+      <div class="section-header"><div class="section-title">Market & Corporate Moves</div></div>
+
+      <div style="margin-bottom:1.3rem;">
+        <div class="kicker">Carbon Removal · Corporate Strategy</div>
+        <div class="story-hed">Microsoft re-enters carbon removal market with 650,000-tonne BECCS deal</div>
+        <div class="body-text">
+          <p>Green energy producer BioCirc and Microsoft announced a 7-year agreement for Microsoft to offtake credits representing up to 650,000 tonnes of carbon removal from BioCirc's bioenergy with carbon capture and storage (BECCS) platform in Denmark. The deal is the first major carbon removal purchase agreement for Microsoft since reports last month that the company had paused purchases, with Chief Sustainability Officer Melanie Nakagawa acknowledging the programme "may adjust the pace or volume" of procurement.</p>
+        </div>
+        <div class="why-it-matters">Why it matters: <span>Microsoft is the largest buyer in the carbon removal market; its re-entry sends a stabilising signal to a sector that had been rattled by the reported pause.</span></div>
+        <div class="source-tag">Source: <a href="https://www.esgtoday.com/microsoft-announces-first-major-carbon-removal-deal-since-reportedly-exiting-the-market/" target="_blank">ESG Today</a></div>
+      </div>
+
+      <div style="margin-bottom:1.3rem;">
+        <div class="kicker">Climate Targets · Corporate Strategy</div>
+        <div class="story-hed">SBTi shifts from ambition-setter to transformation partner</div>
+        <div class="body-text">
+          <p>The SBTi's new 2026-2030 strategy, published 21 May, marks a significant expansion in focus: from target validation toward supporting companies in delivering on climate pledges, with sector-specific guidance, benchmarking data, and advisory services at the core of the model. Close to 11,000 companies have used SBTi guidance for near-term targets; roughly 2,600 have set corporate net-zero targets. Europe accounts for more than 60% of companies with validated targets, but Asia is an increasingly close second.</p>
+          <p>The strategy follows a quietly released April update to the Absolute Contraction Approach that allows companies to set significantly less ambitious near-term goals, reducing required Scope 1 and 2 cuts by 2030 from around 42% to as low as 21% for some companies using a 2025 baseline. The net-zero standard revision is due to be finalised in 2026.</p>
+        </div>
+        <div class="why-it-matters">Why it matters: <span>The ACA change is already generating debate about whether SBTi targets remain science-aligned. The strategy signals an organisation trying to balance rigour with practical relevance, and that tension will define the next five years.</span></div>
+        <div class="source-tag">Sources: <a href="https://sciencebasedtargets.org/about-us/our-2026-2030-strategy" target="_blank">SBTi</a> · <a href="https://www.esgtoday.com/sbti-broadens-focus-from-climate-target-setting-to-implementation/" target="_blank">ESG Today</a> · <a href="https://trellis.net/article/6-things-to-know-about-sbtis-new-strategic-plan/" target="_blank">Trellis</a></div>
+      </div>
+
+      <div>
+        <div class="kicker">Circular Economy · Sustainable Finance</div>
+        <div class="story-hed">HSBC backs circular economy platform Circulate Capital</div>
+        <div class="body-text">
+          <p>Singapore-based Circulate Capital, which focuses on plastic circularity across South and Southeast Asia, announced a new green loan facility with HSBC aimed at accelerating capital deployment across circular economy investments. The facility follows the first close of Circulate Capital Asia II, which raised $220 million for circular supply chain and recycling businesses across India, Indonesia, Thailand, Vietnam, and the Philippines.</p>
+        </div>
+        <div class="source-tag">Source: <a href="https://www.esgtoday.com/hscb-backs-circular-economy-investment-platform-circulate-capital/" target="_blank">ESG Today</a></div>
+      </div>
+    </div>
+
+    <!-- SCIENCE -->
+    <div>
+      <div class="section-header"><div class="section-title">Science & Data Signals</div></div>
+
+      <div style="margin-bottom:1.3rem;">
+        <div class="kicker">Steel · Climate Finance · Transition Economics</div>
+        <div class="story-hed">Act on coal steel before 2030 or pay $800 billion more later</div>
+        <div class="body-text">
+          <p>A study published 21 May in Nature Climate Change by scientists at the Potsdam Institute for Climate Impact Research finds that redirecting investment away from new coal-based steel plants before 2030 is 53%, or roughly $800 billion, cheaper than cutting the equivalent emissions later elsewhere in the economy or through carbon removals. Steel production accounts for 7% of global emissions, and coal-based steel represents around 70% of global production, with roughly half of all planned new capacity still coal-based. Once built, plants will likely operate for decades, locking in emissions well into the 2060s.</p>
+          <p>The study finds that the feasibility of a rapid transition in India is highly sensitive to financing conditions, and that international climate finance reducing investment risk could enable the scale-up of hydrogen-based steel. Recent auctions under India's National Green Hydrogen Mission have delivered lower-than-expected prices for green hydrogen-based ammonia, suggesting hydrogen steelmaking costs could fall faster than anticipated.</p>
+        </div>
+        <div class="why-it-matters">Why it matters: <span>The cost arithmetic is blunt: every year of delay on steel decarbonisation adds to the bill, and the window for low-cost intervention is closing fast.</span></div>
+        <div class="source-tag">Source: <a href="https://www.pik-potsdam.de/en/news/latest-news/redirecting-investment-from-new-coal-steel-plants-before-2030-half-the-price-of-decarbonisation-later-on" target="_blank">Potsdam Institute for Climate Impact Research</a></div>
+      </div>
+
+      <div>
+        <div class="kicker">Energy Transition · Investment</div>
+        <div class="story-hed">Global clean energy investment hits record $2.3 trillion in 2025</div>
+        <div class="body-text">
+          <p>BloombergNEF's New Energy Outlook 2026, published 19 May, finds that global energy transition investment reached a record $2.3 trillion in 2025. If countries continue on their current trajectory of deploying economically competitive clean technologies, they stand to substantially cut reliance on imported fossil fuels and strengthen energy security. However, investment required to achieve a net zero scenario reaches $235 trillion by 2050, meaning annual investment would need to rise dramatically from current levels.</p>
+        </div>
+        <div class="why-it-matters">Why it matters: <span>The gap between current investment and what is needed for net zero is stark, but the record-setting momentum in 2025 confirms that clean energy is now the economically rational default in most markets.</span></div>
+        <div class="source-tag">Source: <a href="https://about.bnef.com/insights/clean-energy/bloombergnefs-new-energy-outlook-2026-transition-to-newer-technologies-expanded-electrification-to-strengthen-nations-energy-security/" target="_blank">BloombergNEF</a></div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>The Monday ECO-nomics · Issue 03 · 25 May 2026</span>
+      <span>English Edition · Page 2</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <div class="edition-bar">
+    <span>The Monday ECO-nomics · Issue 03</span>
+    <span>Page 3 · Nature · Social Impact · Excellent News · Tool of the Week</span>
+  </div>
+
+  <div class="content">
+
+    <!-- NATURE -->
+    <div style="border-bottom:1px solid #bbb;padding-bottom:1.3rem;margin-bottom:1.3rem;">
+      <div class="section-header"><div class="section-title">Nature, Biodiversity & Regenerative Economy</div></div>
+
+      <div style="margin-bottom:1.3rem;">
+        <div class="kicker">Deforestation · Global Forest Watch</div>
+        <div class="story-hed">Tropical forest loss down 36%, but still 70% off the 2030 target</div>
+        <div class="body-text">
+          <p>Tropical rainforest loss fell 36% in 2025 from the record high of 2024, according to data from the University of Maryland's GLAD Lab published via WRI's Global Forest Watch. The world still lost 4.3 million hectares of tropical primary rainforest, an area roughly the size of Denmark, disappearing at a rate of 11 football fields every minute. Non-fire forest loss declined 23% to its lowest level in a decade, suggesting that targeted government policies, particularly in Brazil and Colombia, can drive real progress.</p>
+          <p>Despite the improvement, global forest loss remains 46% higher than a decade ago and 70% above the pace needed to meet the 2030 goal of halting and reversing deforestation. With a potential El Nino developing in 2026, fire risk may rise again. WRI's global forests director Rod Taylor notes that forests are becoming less resilient under increasingly intense fires and droughts, requiring active management even in countries making progress.</p>
+        </div>
+        <div class="why-it-matters">Why it matters: <span>Brazil's enforcement-driven progress is real and replicable. But political will remains fragile, and forest resilience is declining under climate pressure.</span></div>
+        <div class="source-tag">Source: <a href="https://www.wri.org/news/release-tropical-rainforest-loss-drops-36-2025-fires-threaten-global-progress" target="_blank">World Resources Institute</a></div>
+      </div>
+
+      <div>
+        <div class="kicker">Deforestation · COP30 Follow-up</div>
+        <div class="story-hed">Brazil outlines voluntary deforestation roadmap framework</div>
+        <div class="body-text">
+          <p>Brazil has released a first outline of a global voluntary roadmap away from deforestation, under which countries would produce their own national pathways to halt and reverse forest loss by 2030. The framework is a compromise following COP30 in Belem, where 93 countries called for a deforestation roadmap as a formal summit outcome but failed to agree on one, leading Brazil to commit to a voluntary process instead.</p>
+        </div>
+        <div class="source-tag">Source: <a href="https://www.carbonbrief.org/cropped-20-may-2026-deforestation-roadmap-melanesian-ocean-summit-returning-pet-parrots-to-the-wild/" target="_blank">Carbon Brief</a></div>
+      </div>
+    </div>
+
+    <!-- SOCIAL IMPACT -->
+    <div style="border-bottom:1px solid #bbb;padding-bottom:1.3rem;margin-bottom:1.3rem;">
+      <div class="section-header"><div class="section-title">Social Impact & Just Transition</div></div>
+      <div class="kicker">Green Jobs · Labour Markets</div>
+      <div class="story-hed">ILO: green jobs are not automatically better jobs</div>
+      <div class="body-text">
+        <p>Research published in the International Labour Review and highlighted by ILO on 18 May finds that 21.5% of workers in France are employed in green jobs, but shows important variation in job quality across and within skill levels. Women are less likely to transition to green jobs than men, and education has a substantial impact on transition success. The findings point to the role of social protection systems, particularly unemployment insurance, in supporting workers through the ecological transition.</p>
+        <p>The findings have direct implications for corporate and government transition planning: the ecological transition will produce better outcomes for workers when paired with targeted investment in skills and robust social protection, and frameworks that treat "green jobs" as a uniformly positive category risk missing significant distributional inequities.</p>
+      </div>
+      <div class="why-it-matters">Why it matters: <span>Corporate transition plans that do not account for job quality variation and gendered access to green roles are incomplete and increasingly exposed to just transition scrutiny.</span></div>
+      <div class="source-tag">Source: <a href="https://www.ilo.org/resource/article/are-green-jobs-better-jobs-lessons-french-labour-market" target="_blank">International Labour Organization</a></div>
+    </div>
+
+    <!-- EXCELLENT NEWS -->
+    <div class="excellent-box">
+      <div class="excellent-title">Excellent News</div>
+      <div class="excellent-grid" style="grid-template-columns:1fr;">
+        <div class="excellent-item" style="padding-right:0;border-right:none;">
+          <div class="excellent-hed">141 countries told the ICJ's climate ruling is now international law</div>
+          <div class="excellent-body">The UN General Assembly voted 141 to 8 on 20 May to formally back the International Court of Justice's 2025 opinion that states have a legal obligation to address climate change. Led by Vanuatu, a Pacific island nation facing existential sea-level rise, the resolution is a rare moment where the international legal architecture moved decisively in the direction of climate accountability. Secretary-General Guterres called it a "powerful affirmation of international law, climate justice and science."</div>
+          <div class="excellent-source"><a href="https://news.un.org/en/story/2026/05/1167561" target="_blank">UN News</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOOL OF THE WEEK -->
+    <div class="tool-box">
+      <div class="tool-title">Tool of the week</div>
+      <div class="tool-hed">SBTi 2026-2030 Strategy Document</div>
+      <div class="tool-body">
+        <p>If you advise companies on climate targets or manage SBTi engagements, the new 35-page strategy document is worth reading in full. The headline pivot to "transformation partner" is the frame, but the substance is in the details: the Net-Zero Standard revision timeline (end of 2026), the sector-specific work programme (automotive and power sector guidance being finalised now, heavy industry guidance planned by end of 2027), and the changing treatment of companies that miss targets. The strategy also signals that required near-term cuts have been reduced following the April update to the Absolute Contraction Approach, which is already generating debate about scientific alignment.</p>
+        <p>The strategy summary PDF is freely available at <a href="https://sciencebasedtargets.org/about-us/our-2026-2030-strategy" target="_blank">sciencebasedtargets.org</a>. Trellis published a useful six-point breakdown at <a href="https://trellis.net/article/6-things-to-know-about-sbtis-new-strategic-plan/" target="_blank">trellis.net</a>.</p>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>The Monday ECO-nomics · Issue 03 · 25 May 2026</span>
+      <span>English Edition · Page 3</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
