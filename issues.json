@@ -1,0 +1,34 @@
+[
+  {
+    "number": "04",
+    "date": "2026-06-01",
+    "dateDisplay": "1 June 2026",
+    "filename": "the-monday-economics-issue-04-01-june-2.html",
+    "thumbnail": "issue-04.png",
+    "latest": true
+  },
+  {
+    "number": "03",
+    "date": "2026-05-25",
+    "dateDisplay": "25 May 2026",
+    "filename": "the-monday-economics-issue-03.html",
+    "thumbnail": "issue-03.png",
+    "latest": false
+  },
+  {
+    "number": "02",
+    "date": "2026-05-18",
+    "dateDisplay": "18 May 2026",
+    "filename": "the-monday-economics-issue-02.html",
+    "thumbnail": "issue-02.png",
+    "latest": false
+  },
+  {
+    "number": "01",
+    "date": "2026-05-11",
+    "dateDisplay": "11 May 2026",
+    "filename": "the-monday-economics-issue-01html.html",
+    "thumbnail": "issue-01.png",
+    "latest": false
+  }
+]
