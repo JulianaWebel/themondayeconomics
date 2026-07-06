@@ -541,7 +541,7 @@
       return `<div class="placeholder"><span class="placeholder-text">${alt}</span></div>`;
     }
 
-    fetch('issues.json')
+    fetch('issues.json?v=' + Date.now())
       .then(r => r.json())
       .then(issues => {
         // Sort: latest first by date
