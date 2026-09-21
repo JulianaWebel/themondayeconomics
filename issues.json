@@ -1,11 +1,19 @@
 [
   {
+    "number": "20",
+    "date": "2026-09-21",
+    "dateDisplay": "21 September 2026",
+    "filename": "the-monday-economics-issue-20-21-september-2026.html",
+    "thumbnail": "issue-20.png",
+    "latest": true
+  },
+  {
     "number": "19",
     "date": "2026-09-14",
     "dateDisplay": "14 September 2026",
     "filename": "the-monday-economics-issue-19-14-september-2026.html",
     "thumbnail": "issue-19.png",
-    "latest": true
+    "latest": false
   },
   {
     "number": "18",
